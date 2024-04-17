@@ -31,7 +31,7 @@ app.use(fileUpload({
 if(process.env.MODE === "production") {
     app.use(express.static(`client/build`))
      app.get(`/`, async (req,res) => {
-        return res.sendFile(path.resolve(__dirname,`${`/client/build/index.html`}`))
+        return res.sendFile(path.resolve(__dirname,`./client/build/index.html`))
     })
 } 
 
