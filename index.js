@@ -17,6 +17,8 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.use(express.static("client"))
+
 // middleware
 app.use(cors()) // cross origin resource sharing (header properties)
 app.use(cookieParser(process.env.ACCESS_SECRET)) // signed cookies (secure)
