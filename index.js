@@ -32,7 +32,7 @@ app.use(fileUpload({
 // index route
 if(process.env.MODE === "production") {
     // executes in production mode
-    app.get(`/`, (req,res, next) => {
+    app.use(`/`, (req,res, next) => {
         return res.sendFile(path.resolve(__dirname,`./build/index.html`))
         next()
     })
