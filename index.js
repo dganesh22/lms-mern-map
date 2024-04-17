@@ -29,11 +29,12 @@ app.use(fileUpload({
 
 // index route
 if(process.env.MODE === "production") {
-    // app.use(express.static(`client/build`))
-     app.get(`*`, async (req,res) => {
-        return res.sendFile(path.join(__dirname + `/client/build/index.html`))
+    // executes in production mode
+    app.use(`/`, (req,res, next) => {
+        return res.sendFile(path.resolve(__dirname,`./client/build/index.html`))
+        next()
     })
-} 
+}
 
 if(process.env.MODE === "development") {
     app.get(`/`, async (req,res) => {
